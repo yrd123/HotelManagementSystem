@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Home extends JFrame {
-    JButton toLogin;
+    JButton btnNext;
     JLabel background, text;
 
     public Home() {
@@ -25,13 +25,13 @@ public class Home extends JFrame {
         text.setFont(new Font("Times New Roman", Font.BOLD, 30));
         background.add(text);
 
-        toLogin = new JButton("Login");
-        toLogin.setBounds(550,295,70,40);
-        background.add(toLogin);
+        btnNext = new JButton("Next");
+        btnNext.setBounds(550,295,70,40);
+        background.add(btnNext);
 
         add(background);
 
-        toLogin.addActionListener(ae-> {
+        btnNext.addActionListener(ae-> {
             new Login();
             dispose();
         });

@@ -2,7 +2,6 @@ package com.company.login;
 
 import com.company.Dashboard;
 import com.company.PostgreSQLConnection;
-import com.company.Home;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,24 +11,23 @@ import java.sql.*;
 
 public class Login extends JFrame implements ActionListener {
 
-    JLabel usernameLabel, passwordLabel;
     JTextField usernameInput;
     JPasswordField passwordInput;
-    JButton loginButton;
+    JButton btnLogin;
 
     public Login(){
 
         //Build Form
 
-        usernameLabel = new JLabel("Username:");
-        usernameLabel.setBounds(50,50,100, 50);
-        usernameLabel.setForeground(Color.WHITE);
-        add(usernameLabel);
+        JLabel lblUsername = new JLabel("Username:");
+        lblUsername.setBounds(50,50,100, 50);
+        lblUsername.setForeground(Color.WHITE);
+        add(lblUsername);
 
-        passwordLabel = new JLabel("Password:");
-        passwordLabel.setBounds(50,100,100, 50);
-        passwordLabel.setForeground(Color.WHITE);
-        add(passwordLabel);
+        JLabel lblPassword = new JLabel("Password:");
+        lblPassword.setBounds(50,100,100, 50);
+        lblPassword.setForeground(Color.WHITE);
+        add(lblPassword);
 
         usernameInput = new JTextField();
         usernameInput.setBounds(150,65,150, 20);
@@ -39,9 +37,9 @@ public class Login extends JFrame implements ActionListener {
         passwordInput.setBounds(150,115,150, 20);
         add(passwordInput);
 
-        loginButton = new JButton("Login");
-        loginButton.setBounds(150,160,80,40);
-        add(loginButton);
+        btnLogin = new JButton("Login");
+        btnLogin.setBounds(150,160,80,40);
+        add(btnLogin);
 
         setLayout(null);
         getContentPane().setBackground(new Color(96,94,134));
@@ -49,12 +47,12 @@ public class Login extends JFrame implements ActionListener {
         setBounds(500,200,500,400);
         setVisible(true);
 
-        loginButton.addActionListener(this);  // Call performed action on click
+        btnLogin.addActionListener(this);  // Call performed action on click
     }
 
     @Override
     public void actionPerformed(ActionEvent ae){
-        if(ae.getSource() == loginButton) {
+        if(ae.getSource() == btnLogin) {
             if(login(usernameInput.getText(), passwordInput.getText())) {
                 new Dashboard();
                 dispose();

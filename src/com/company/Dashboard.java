@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Employee.AddEmployee;
+import com.company.Room.AddRoom;
 import com.company.login.LoginSession;
 
 import javax.swing.*;
@@ -9,38 +11,35 @@ public class Dashboard extends JFrame {
     JMenuBar menuBar;
     JMenu management, admin;
     JMenuItem reception, addRoom, addEmployee, addDriver;
-    JLabel background, text;
 
     public Dashboard(){
         menuBar = new JMenuBar();
 
         management = new JMenu("Management");
-        menuBar.add(management);
-
         reception = new JMenuItem("Reception");
         management.add(reception);
 
-
         admin = new JMenu("Admin");
-        admin.setForeground(Color.BLUE);
-        menuBar.add(admin);
-
         addEmployee = new JMenuItem("Add Employee");
-        admin.add(addEmployee);
-
         addRoom = new JMenuItem("Add Room");
-        admin.add(addRoom);
-
         addDriver = new JMenuItem("Add Driver");
+        admin.add(addEmployee);
+        admin.add(addRoom);
         admin.add(addDriver);
+        admin.setForeground(Color.BLUE);
 
+        menuBar.add(management);
+        menuBar.add(admin);
         setJMenuBar(menuBar);
 
+        addEmployee.addActionListener(ae -> new AddEmployee());
+        addRoom.addActionListener(ae -> new AddRoom());
+
         ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/background.png"));
-        background = new JLabel();
+        JLabel background = new JLabel();
         background.setIcon(img);
 
-        text = new JLabel("Dashboard");
+        JLabel text = new JLabel("Dashboard");
         text.setBounds(250,50,400,50);
         text.setForeground(Color.WHITE);
         text.setFont(new Font("Times New Roman",Font.BOLD, 30));
