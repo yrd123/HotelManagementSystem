@@ -1,172 +1,185 @@
 package com.company.Driver;
 
-import com.company.Employee.AddEmployee;
 import com.company.PostgreSQLConnection;
 
 import javax.swing.*;
-import javax.swing.plaf.nimbus.State;
+import javax.xml.transform.Result;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Random;
 
 public class AddDriver extends JFrame implements ActionListener {
-    private JPanel contentPane;
-    private JTextField t1,t2,t3,t4, t5;
-    private JComboBox comboBox, comboBox_1;
-    JButton b1,b2;
-    Choice c1;
+    JTextField txtName, txtAge, txtCarCompany, txtCarModel, txtLocation;
+    JRadioButton male, female;
+    ButtonGroup grpGender;
+    JComboBox txtStatus;
+    JButton btnSubmit;
 
-    public AddDriver() {
-        setBounds(450, 200, 1000, 500);
-        contentPane = new JPanel();
-        setContentPane(contentPane);
-        contentPane.setLayout(null);
+    public AddDriver(){
+        setLayout(null);
+        getContentPane().setBackground(Color.WHITE);
+        setBounds(400,200,900,520);
 
-        ImageIcon i1  = new ImageIcon(ClassLoader.getSystemResource("hotel/management/system/icons/eleven.jpg"));
-        Image i3 = i1.getImage().getScaledInstance(500, 300,Image.SCALE_DEFAULT);
-        ImageIcon i2 = new ImageIcon(i3);
-        JLabel l15 = new JLabel(i2);
-        l15.setBounds(400,30,500,370);
-        add(l15);
+        JLabel lblName = new JLabel("Name");
+        lblName.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblName.setBounds(60,30,120,30);
+        add(lblName);
 
-        JLabel l10 = new JLabel("Add Drivers");
-        l10.setFont(new Font("Tahoma", Font.BOLD, 18));
-        l10.setBounds(194, 10, 120, 22);
-        contentPane.add(l10);
+        txtName = new JTextField();
+        txtName.setBounds(200,30,150,30);
+        add(txtName);
 
+        JLabel lblAge = new JLabel("Age");
+        lblAge.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblAge.setBounds(60,80,120,30);
+        add(lblAge);
 
+        txtAge = new JTextField();
+        txtAge.setBounds(200,80,150,30);
+        add(txtAge);
 
-        JLabel l1 = new JLabel("Name");
-        l1.setForeground(new Color(25, 25, 112));
-        l1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l1.setBounds(64, 70, 102, 22);
-        contentPane.add(l1);
+        JLabel lblGender = new JLabel("Gender");
+        lblGender.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblGender.setBounds(60,130,120,30);
+        add(lblGender);
 
+        // Gender
+        male = new JRadioButton("Male");
+        male.setBounds(200,130,70,30);
+        add(male);
 
-        t1 = new JTextField();
-        t1.setBounds(174, 70, 156, 20);
-        contentPane.add(t1);
+        female = new JRadioButton("Female");
+        female.setBounds(280,130,70,30);
+        add(female);
 
+        grpGender = new ButtonGroup();
+        grpGender.add(male);
+        grpGender.add(female);
 
-        JLabel l2 = new JLabel("Age");
-        l2.setForeground(new Color(25, 25, 112));
-        l2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l2.setBounds(64, 110, 102, 22);
-        contentPane.add(l2);
+        // Car
+        JLabel lblCarCompany = new JLabel("Car Company");
+        lblCarCompany.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblCarCompany.setBounds(60,180,120,30);
+        add(lblCarCompany);
 
-        t2 = new JTextField();
-        t2.setBounds(174, 110, 156, 20);
-        contentPane.add(t2);
+        txtCarCompany = new JTextField();
+        txtCarCompany.setBounds(200,180,150,30);
+        add(txtCarCompany);
 
+        JLabel lblCarModel = new JLabel("Car Model");
+        lblCarModel.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblCarModel.setBounds(60,230,120,30);
+        add(lblCarModel);
 
-        JLabel l3 = new JLabel("Gender");
-        l3.setForeground(new Color(25, 25, 112));
-        l3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l3.setBounds(64, 150, 102, 22);
-        contentPane.add(l3);
+        txtCarModel = new JTextField();
+        txtCarModel.setBounds(200,230,150,30);
+        add(txtCarModel);
 
-        comboBox = new JComboBox(new String[] { "Male", "Female" });
-        comboBox.setBounds(176, 150, 154, 20);
-        contentPane.add(comboBox);
+        // Status
+        JLabel lblStatus = new JLabel("Status");
+        lblStatus.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblStatus.setBounds(60,280,120,30);
+        add(lblStatus);
 
-        JLabel l4 = new JLabel("Car Company");
-        l4.setForeground(new Color(25, 25, 112));
-        l4.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l4.setBounds(64, 190, 102, 22);
-        contentPane.add(l4);
+        txtStatus = new JComboBox(new String[] {"Available","Busy"});
+        txtStatus.setBounds(200,280,150,30);
+        add(txtStatus);
 
-        t3 = new JTextField();
-        t3.setBounds(174, 190, 156, 20);
-        contentPane.add(t3);
+        JLabel lblLocation = new JLabel("Location");
+        lblLocation.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblLocation.setBounds(60,330,120,30);
+        add(lblLocation);
 
-        JLabel l5 = new JLabel("Car Brand");
-        l5.setForeground(new Color(25, 25, 112));
-        l5.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l5.setBounds(64, 230, 102, 22);
-        contentPane.add(l5);
+        txtLocation = new JTextField();
+        txtLocation.setBounds(200,330,150,30);
+        add(txtLocation);
 
-
-        t4 = new JTextField();
-        t4.setBounds(174, 230, 156, 20);
-        contentPane.add(t4);
-
-
-        JLabel l6 = new JLabel("Available");
-        l6.setForeground(new Color(25, 25, 112));
-        l6.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l6.setBounds(64, 270, 102, 22);
-        contentPane.add(l6);
-
-
-        comboBox_1 = new JComboBox(new String[] { "Yes", "No" });
-        comboBox_1.setBounds(176, 270, 154, 20);
-        contentPane.add(comboBox_1);
-
-
-        JLabel l7 = new JLabel("Location");
-        l7.setForeground(new Color(25, 25, 112));
-        l7.setFont(new Font("Tahoma", Font.BOLD, 14));
-        l7.setBounds(64, 310, 102, 22);
-        contentPane.add(l7);
+        btnSubmit = new JButton("Submit");
+        btnSubmit.setBackground(Color.black);
+        btnSubmit.setForeground(Color.WHITE);
+        btnSubmit.setBounds(150,400,150,30);
+        add(btnSubmit);
+        btnSubmit.addActionListener(this);
 
 
-        t5 = new JTextField();
-        t5.setBounds(174, 310, 156, 20);
-        contentPane.add(t5);
+        JLabel heading = new JLabel("Add Driver");
+        heading.setBounds(550, 10, 400, 30);
+        heading.setFont(new Font("",Font.BOLD,20));
+        setForeground(Color.black);
+        add(heading);
 
+        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/Driver.jpg"));
+        img = new ImageIcon(img.getImage().getScaledInstance(450,450,Image.SCALE_DEFAULT));
+        JLabel background = new JLabel();
+        background.setIcon(img);
+        background.setBounds(400,30,450,450);
+        add(background);
 
-
-        b1 = new JButton("Add");
-        b1.addActionListener(this);
-        b1.setBounds(64, 380, 111, 33);
-        b1.setBackground(Color.BLACK);
-        b1.setForeground(Color.WHITE);
-        contentPane.add(b1);
-
-        b2 = new JButton("Back");
-        b2.addActionListener(this);
-        b2.setBounds(198, 380, 111, 33);
-        b2.setBackground(Color.BLACK);
-        b2.setForeground(Color.WHITE);
-        contentPane.add(b2);
-
-
-        contentPane.setBackground(Color.WHITE);
-
+        //pack();
+        setVisible(true);
     }
 
+    @Override
     public void actionPerformed(ActionEvent ae){
-        if(ae.getSource() == b1){
-            String name = t1.getText();
-            String age = t2.getText();
-            String gender = (String)comboBox.getSelectedItem();
-            String company  = t3.getText();
-            String brand = t4.getText();
-            String available = (String)comboBox_1.getSelectedItem();
-            String location = t5.getText();
+        if(ae.getSource() == btnSubmit){
+            String name, gender, carCompany, carModel, status, location;
+            int age = 0;
 
 
-            String query = "INSERT INTO driver values( '"+name+"', '"+age+"', '"+gender+"','"+company+"', '"+brand+"', '"+available+"','"+location+"')";
+            name = txtName.getText();
+
+            if(isPositiveInteger(txtAge.getText()))
+                age = Integer.parseInt(txtAge.getText());
+            else {
+                JOptionPane.showMessageDialog(null,"Enter valid age");
+                return;
+            }
+
+            gender = male.isSelected()? "Male" : "Female";
+            carCompany = txtCarCompany.getText();
+            carModel = txtCarModel.getText();
+            status = (String) txtStatus.getSelectedItem();
+            location = txtLocation.getText();
+
             try{
                 Connection conn = PostgreSQLConnection.getConnection();
                 Statement s = conn.createStatement();
-                int rowsAffected = s.executeUpdate(query);
-                if(rowsAffected == 1) {
-                    JOptionPane.showMessageDialog(null, "Driver Successfully Added");
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "Error in adding driver to database");
+
+                int id = (int) Math.floor(Math.random()*1000);
+                while(true){
+                    ResultSet rs = s.executeQuery("Select id from driver where id=" + id + ";");
+                    if(rs.next())
+                        id = (int) Math.floor(Math.random()*1000);
+                    else
+                        break;
                 }
 
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null, e);
+                String query = "INSERT INTO DRIVER VALUES ("+ id +",'" + name + "'," + age + ",'" + gender + "','" + carCompany + "','" + carModel + "','" + status + "','" + location + "');";
+                System.out.println(query);
+
+                int rowsInserted = s.executeUpdate(query);
+                if(rowsInserted >= 1)
+                    JOptionPane.showMessageDialog(null,"Driver added successfully");
+                else
+                    JOptionPane.showMessageDialog(null,"Error adding Driver");
+            }
+            catch(Exception e){
+                System.out.println(e);
+                JOptionPane.showMessageDialog(null,e);
             }
         }
-        else if(ae.getSource() == b2){
-            this.setVisible(false);
+    }
+
+    public boolean isPositiveInteger(String str){
+        for(char ch: str.toCharArray()){
+            if(ch < '0' || ch > '9')
+                return false;
         }
+        return true;
     }
 
     public static void main(String[] args) {

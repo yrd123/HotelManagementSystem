@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Employee.EmployeeDetail;
+import com.company.Room.RoomDetail;
 import com.company.login.Logout;
 
 import javax.swing.*;
@@ -31,12 +33,13 @@ public class Reception extends JFrame implements ActionListener {
         leftPanel.add(b1);
         b1.addActionListener(this);
 
-        b2 = new JButton("Room");
+        b2 = new JButton("Room Details");
         b2.setBackground(new Color(96,94,134));
         b2.setForeground(Color.white);
         b2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
         b2.setBounds(0,50,400,50);
         leftPanel.add(b2);
+        b2.addActionListener(this);
 
         b3 = new JButton("Department");
         b3.setBackground(new Color(96,94,134));;
@@ -45,12 +48,13 @@ public class Reception extends JFrame implements ActionListener {
         b3.setBounds(0,100,400,50);
         leftPanel.add(b3);
 
-        b4 = new JButton("All Employee Info");
+        b4 = new JButton("Employee Details");
         b4.setBackground(new Color(96,94,134));
         b4.setForeground(Color.white);
         b4.setFont(new Font("Times New Roman", Font.PLAIN, 18));
         b4.setBounds(0,150,400,50);
         leftPanel.add(b4);
+        b4.addActionListener(this);
 
         b5 = new JButton("Customer Info");
         b5.setBackground(new Color(96,94,134));;
@@ -65,6 +69,7 @@ public class Reception extends JFrame implements ActionListener {
         b6.setFont(new Font("Times New Roman", Font.PLAIN, 18));
         b6.setBounds(0,250,400,50);
         leftPanel.add(b6);
+        b6.addActionListener(this);
 
         b7 = new JButton("Check Out");
         b7.setBackground(new Color(96,94,134));;
@@ -73,7 +78,7 @@ public class Reception extends JFrame implements ActionListener {
         b7.setBounds(0,300,400,50);
         leftPanel.add(b7);
 
-        b8 = new JButton("Update Check Status");
+        b8 = new JButton("Update Check In");
         b8.setBackground(new Color(96,94,134));;
         b8.setForeground(Color.white);
         b8.setFont(new Font("Times New Roman", Font.PLAIN, 18));
@@ -127,23 +132,23 @@ public class Reception extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        /*if(e.getSource() == b1){
+        if(e.getSource() == b1){
 
         }
         else if(e.getSource() == b2){
-
+            new RoomDetail();
         }
         else if(e.getSource() == b3){
 
         }
         else if(e.getSource() == b4){
-
+            new EmployeeDetail().displayEmployeeInformation();
         }
         else if(e.getSource() == b5){
 
         }
         else if(e.getSource() == b6){
-
+            new EmployeeDetail().displayManagerInformation();
         }
         else if(e.getSource() == b7){
 
@@ -160,8 +165,8 @@ public class Reception extends JFrame implements ActionListener {
         else if(e.getSource() == b11){
 
         }
-        else if(e.getSource() == b12){
+        else if(e.getSource() == b12) {
 
-        }*/
+        }
     }
 }

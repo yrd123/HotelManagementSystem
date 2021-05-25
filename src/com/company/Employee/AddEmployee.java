@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Random;
 
 public class AddEmployee extends JFrame implements ActionListener {
     JTextField txtName, txtAge, txtSalary, txtPhone, txtAadhar, txtEmail;
@@ -165,10 +166,22 @@ public class AddEmployee extends JFrame implements ActionListener {
             System.out.println(gender);
             System.out.println(job);
 
-            String query = "INSERT INTO EMPLOYEE VALUES ('" + name + "'," + age + ",'" + gender + "','" + job + "'," + salary + ",'" + phone + "','" + aadhar + "','" + email + "');";
             try{
                 Connection conn = PostgreSQLConnection.getConnection();
                 Statement s = conn.createStatement();
+
+                int id = (int) Math.floor(Math.random()*1000);
+                while(true){
+                    ResultSet rs = s.executeQuery("Select id from employee where id=" + id + ";");
+                    if(rs.next())
+                        id = (int) Math.floor(Math.random()*1000);
+                    else
+                        break;
+                }
+
+                String query = "INSERT INTO EMPLOYEE VALUES ("+ id +",'" + name + "'," + age + ",'" + gender + "','" + job + "'," + salary + ",'" + phone + "','" + aadhar + "','" + email + "');";
+                System.out.println(query);
+
                 int rowsInserted = s.executeUpdate(query);
                 if(rowsInserted >= 1)
                     JOptionPane.showMessageDialog(null,"Employee added successfully");

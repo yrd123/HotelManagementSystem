@@ -121,7 +121,7 @@ public class AddRoom extends JFrame implements ActionListener {
                 Statement s = conn.createStatement();
 
                 int rowsAffected = s.executeUpdate(query);
-                System.out.println("rows affeccted: " + rowsAffected);
+                System.out.println("rows affected: " + rowsAffected);
                 if(rowsAffected == 1){
                     JOptionPane.showMessageDialog(null,"Added room successfully");
                 }
