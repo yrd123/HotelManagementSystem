@@ -127,7 +127,7 @@ public class Reception extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == b1){
+        /*if(e.getSource() == b1){
 
         }
         else if(e.getSource() == b2){
@@ -162,6 +162,6 @@ public class Reception extends JFrame implements ActionListener {
         }
         else if(e.getSource() == b12){
 
-        }
+        }*/
     }
 }
