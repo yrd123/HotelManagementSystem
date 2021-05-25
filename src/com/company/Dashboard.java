@@ -13,6 +13,9 @@ public class Dashboard extends JFrame {
     JMenuItem reception, addRoom, addEmployee, addDriver;
 
     public Dashboard(){
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         menuBar = new JMenuBar();
 
         management = new JMenu("Management");
@@ -32,8 +35,14 @@ public class Dashboard extends JFrame {
         menuBar.add(admin);
         setJMenuBar(menuBar);
 
+        reception.addActionListener(ae -> {
+            new Reception();
+            dispose();
+        });
+
         addEmployee.addActionListener(ae -> new AddEmployee());
         addRoom.addActionListener(ae -> new AddRoom());
+
 
         ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/background.png"));
         JLabel background = new JLabel();
@@ -46,10 +55,7 @@ public class Dashboard extends JFrame {
         background.add(text);
 
         add(background);
-
-        setBounds(500,200,500,500);
         pack();
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         System.out.println(LoginSession.isLoggedIn);
     }
