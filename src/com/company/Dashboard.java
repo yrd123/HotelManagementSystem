@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.Driver.AddDriver;
 import com.company.Employee.AddEmployee;
 import com.company.Room.AddRoom;
 import com.company.login.LoginSession;
@@ -42,6 +43,7 @@ public class Dashboard extends JFrame {
 
         addEmployee.addActionListener(ae -> new AddEmployee());
         addRoom.addActionListener(ae -> new AddRoom());
+        addDriver.addActionListener(ae-> new AddDriver());
 
 
         ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/background.png"));

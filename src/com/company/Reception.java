@@ -1,7 +1,11 @@
 package com.company;
 
+import com.company.Customer.CustomerCheckIn;
+import com.company.Customer.CustomerCheckOut;
+import com.company.Customer.CustomerDetail;
 import com.company.Employee.EmployeeDetail;
 import com.company.Room.RoomDetail;
+import com.company.Room.UpdateRoomDetails;
 import com.company.login.Logout;
 
 import javax.swing.*;
@@ -25,7 +29,7 @@ public class Reception extends JFrame implements ActionListener {
         leftPanel.setLayout(null);
         add(leftPanel);
 
-        b1 = new JButton("New Customer Form");
+        b1 = new JButton("Customer Check In");
         b1.setBackground(new Color(96,94,134));
         b1.setForeground(Color.white);
         b1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
@@ -56,14 +60,15 @@ public class Reception extends JFrame implements ActionListener {
         leftPanel.add(b4);
         b4.addActionListener(this);
 
-        b5 = new JButton("Customer Info");
+        b5 = new JButton("Customer Details");
         b5.setBackground(new Color(96,94,134));;
         b5.setForeground(Color.white);
         b5.setFont(new Font("Times New Roman", Font.PLAIN, 18));
         b5.setBounds(0,200,400,50);
         leftPanel.add(b5);
+        b5.addActionListener(this);
 
-        b6 = new JButton("Manager Info");
+        b6 = new JButton("Manager Details");
         b6.setBackground(new Color(96,94,134));;
         b6.setForeground(Color.white);
         b6.setFont(new Font("Times New Roman", Font.PLAIN, 18));
@@ -77,6 +82,7 @@ public class Reception extends JFrame implements ActionListener {
         b7.setFont(new Font("Times New Roman", Font.PLAIN, 18));
         b7.setBounds(0,300,400,50);
         leftPanel.add(b7);
+        b7.addActionListener(this);
 
         b8 = new JButton("Update Check In");
         b8.setBackground(new Color(96,94,134));;
@@ -85,12 +91,13 @@ public class Reception extends JFrame implements ActionListener {
         b8.setBounds(0,350,400,50);
         leftPanel.add(b8);
 
-        b9 = new JButton("Update Room Status");
+        b9 = new JButton("Update Room Details");
         b9.setBackground(new Color(96,94,134));
         b9.setForeground(Color.white);
         b9.setFont(new Font("Times New Roman", Font.PLAIN, 18));
         b9.setBounds(0,400,400,50);
         leftPanel.add(b9);
+        b9.addActionListener(this);
 
         b10 = new JButton("Pick Up Service");
         b10.setBackground(new Color(96,94,134));
@@ -133,7 +140,7 @@ public class Reception extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == b1){
-
+            new CustomerCheckIn();
         }
         else if(e.getSource() == b2){
             new RoomDetail();
@@ -145,19 +152,19 @@ public class Reception extends JFrame implements ActionListener {
             new EmployeeDetail().displayEmployeeInformation();
         }
         else if(e.getSource() == b5){
-
+            new CustomerDetail();
         }
         else if(e.getSource() == b6){
             new EmployeeDetail().displayManagerInformation();
         }
         else if(e.getSource() == b7){
-
+            new CustomerCheckOut();
         }
         else if(e.getSource() == b8){
 
         }
         else if(e.getSource() == b9){
-
+            new UpdateRoomDetails();
         }
         else if(e.getSource() == b10){
 

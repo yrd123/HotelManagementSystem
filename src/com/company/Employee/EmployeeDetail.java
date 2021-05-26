@@ -14,6 +14,7 @@ public class EmployeeDetail extends JFrame{
 
     public EmployeeDetail(){
         setLayout(null);
+        setBounds(500,50,1000,650);
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(null);
@@ -67,7 +68,6 @@ public class EmployeeDetail extends JFrame{
         add(btnCLose);
         btnCLose.addActionListener(ae->dispose());
 
-        setBounds(500,50,1000,650);
         setVisible(true);
 
     }

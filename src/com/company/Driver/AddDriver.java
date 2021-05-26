@@ -49,10 +49,12 @@ public class AddDriver extends JFrame implements ActionListener {
 
         // Gender
         male = new JRadioButton("Male");
+        male.setBackground(Color.white);
         male.setBounds(200,130,70,30);
         add(male);
 
         female = new JRadioButton("Female");
+        female.setBackground(Color.white);
         female.setBounds(280,130,70,30);
         add(female);
 
@@ -182,7 +184,4 @@ public class AddDriver extends JFrame implements ActionListener {
         return true;
     }
 
-    public static void main(String[] args) {
-        new AddDriver();
-    }
 }
