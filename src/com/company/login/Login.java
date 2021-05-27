@@ -20,31 +20,34 @@ public class Login extends JFrame implements ActionListener {
         //Build Form
 
         JLabel lblUsername = new JLabel("Username:");
-        lblUsername.setBounds(50,50,100, 50);
+        lblUsername.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblUsername.setBounds(70,70,100, 50);
         lblUsername.setForeground(Color.WHITE);
         add(lblUsername);
 
         JLabel lblPassword = new JLabel("Password:");
-        lblPassword.setBounds(50,100,100, 50);
+        lblPassword.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        lblPassword.setBounds(70,120,100, 50);
         lblPassword.setForeground(Color.WHITE);
         add(lblPassword);
 
         usernameInput = new JTextField();
-        usernameInput.setBounds(150,65,150, 20);
+        usernameInput.setBounds(180,80,180, 30);
         add(usernameInput);
 
         passwordInput = new JPasswordField();
-        passwordInput.setBounds(150,115,150, 20);
+        passwordInput.setBounds(180,130,180, 30);
         add(passwordInput);
 
         btnLogin = new JButton("Login");
-        btnLogin.setBounds(150,160,80,40);
+        btnLogin.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnLogin.setBounds(160,190,80,40);
         add(btnLogin);
 
         setLayout(null);
-        getContentPane().setBackground(new Color(96,94,134));
+        getContentPane().setBackground(new Color(77, 163, 220));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(500,200,500,400);
+        setBounds(570,260,450,350);
         setVisible(true);
 
         btnLogin.addActionListener(this);  // Call performed action on click
@@ -78,7 +81,7 @@ public class Login extends JFrame implements ActionListener {
             }
         }
         catch(Exception e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null,e);
         }
         return false;
     }

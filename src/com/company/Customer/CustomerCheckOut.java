@@ -48,6 +48,7 @@ public class CustomerCheckOut extends JFrame implements ActionListener {
         add(lblRoomNumber);
 
         txtRoomNo = new JComboBox(getRoomNumbers());
+        txtRoomNo.setBackground(Color.WHITE);
         txtRoomNo.setBounds(250,100,200,30);
         add(txtRoomNo);
         txtRoomNo.addActionListener(this);
@@ -144,7 +145,7 @@ public class CustomerCheckOut extends JFrame implements ActionListener {
         add(btnCancel);
         btnCancel.addActionListener(ae -> dispose());
 
-        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/customer.jpg"));
+        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/checkOut.jpg"));
         img = new ImageIcon(img.getImage().getScaledInstance(470,540,Image.SCALE_DEFAULT));
         JLabel background = new JLabel();
         background.setIcon(img);
@@ -207,8 +208,6 @@ public class CustomerCheckOut extends JFrame implements ActionListener {
                 else
                     JOptionPane.showMessageDialog(null, "Error getting room data");
 
-                s.close();
-                conn.close();
             }
             else if(ae.getSource() == btnCheckOut){
                 String roomNo = (String) txtRoomNo.getSelectedItem();
@@ -217,7 +216,7 @@ public class CustomerCheckOut extends JFrame implements ActionListener {
 
                 int noOfDays = 0;
                 if(isPositiveInteger(txtNoOfDays.getText()))
-                    noOfDays = Integer.parseInt(txtDeposit.getText());
+                    noOfDays = Integer.parseInt(txtNoOfDays.getText());
                 else {
                     JOptionPane.showMessageDialog(null,"Enter valid no of days");
                     return;
@@ -240,7 +239,7 @@ public class CustomerCheckOut extends JFrame implements ActionListener {
 
 
                 float finalDeposit = deposit + amountPaid;
-                String customerQuery = "Update customer set status='Checked-Out', deposit=" + finalDeposit + ",checkOutDate='" + checkOutDate + "' where idnumber='" + idNumber + "',staydays=" + noOfDays + ";";
+                String customerQuery = "Update customer set status='Checked-Out', deposit=" + finalDeposit + ",checkOutDate='" + checkOutDate + "',staydays=" + noOfDays + " where idnumber='" + idNumber + "';";
                 System.out.println(customerQuery);
                 int customerRowsAffected = s.executeUpdate(customerQuery);
                 if(customerRowsAffected == 1) {

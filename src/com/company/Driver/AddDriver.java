@@ -88,6 +88,7 @@ public class AddDriver extends JFrame implements ActionListener {
         add(lblStatus);
 
         txtStatus = new JComboBox(new String[] {"Available","Busy"});
+        txtStatus.setBackground(Color.WHITE);
         txtStatus.setBounds(200,280,150,30);
         add(txtStatus);
 
@@ -161,7 +162,6 @@ public class AddDriver extends JFrame implements ActionListener {
                 }
 
                 String query = "INSERT INTO DRIVER VALUES ("+ id +",'" + name + "'," + age + ",'" + gender + "','" + carCompany + "','" + carModel + "','" + status + "','" + location + "');";
-                System.out.println(query);
 
                 int rowsInserted = s.executeUpdate(query);
                 if(rowsInserted >= 1)
@@ -170,7 +170,6 @@ public class AddDriver extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null,"Error adding Driver");
             }
             catch(Exception e){
-                System.out.println(e);
                 JOptionPane.showMessageDialog(null,e);
             }
         }

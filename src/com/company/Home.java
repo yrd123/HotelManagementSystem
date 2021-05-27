@@ -3,45 +3,38 @@ package com.company;
 import com.company.login.Login;
 import com.company.login.LoginSession;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 
 public class Home extends JFrame {
-    JButton btnNext;
-    JLabel background, text;
+    JButton btnLogIn;
+    JLabel background;
 
     public Home() {
 
         background = new JLabel();
 
-        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/background.png"));
+        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/HMS.jpg"));
+        img = new ImageIcon(img.getImage().getScaledInstance(1000,600,Image.SCALE_DEFAULT));
         background.setIcon(img);
         //background.setBounds(0,0,00,281);
 
-        text = new JLabel("Hotel Management System");
-        text.setBounds(10,10,400,50);
-        text.setForeground(Color.WHITE);
-        text.setFont(new Font("Times New Roman", Font.BOLD, 30));
-        background.add(text);
-
-        btnNext = new JButton("Next");
-        btnNext.setBounds(550,295,70,40);
-        background.add(btnNext);
-
-        add(background);
-
-        btnNext.addActionListener(ae-> {
+        btnLogIn = new JButton("Login");
+        btnLogIn.setFont(new Font("Times New Roman", Font.PLAIN, 21));
+        btnLogIn.setBounds(840,520,120,60);
+        background.add(btnLogIn);
+        btnLogIn.addActionListener(ae-> {
             new Login();
             dispose();
         });
 
-        setBounds(500,200,500,281);
+        add(background);
+
+        setBounds(300,100,1000,600);
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
 
-        System.out.println(LoginSession.isLoggedIn);
     }
 
 }

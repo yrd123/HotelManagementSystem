@@ -8,11 +8,11 @@ import net.proteanit.sql.*;
 import java.awt.*;
 import java.sql.*;
 
-public class CustomerDetail extends JFrame{
+public class CustomerDetails extends JFrame{
     JTable customerTable;
     JButton btnCLose;
 
-    public CustomerDetail(){
+    public CustomerDetails(){
         setLayout(null);
         setBounds(350,50,1100,650);
 

@@ -17,7 +17,7 @@ public class AddRoom extends JFrame implements ActionListener {
     public AddRoom(){
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);
-        setBounds(400,200,1000,500);
+        setBounds(440,200,1000,500);
 
         JLabel lblAddRooms = new JLabel("Add Rooms");
         lblAddRooms.setFont(new Font("",Font.BOLD, 20));
@@ -39,6 +39,7 @@ public class AddRoom extends JFrame implements ActionListener {
         add(lblAvailableStatus);
 
         txtAvailabilityStatus = new JComboBox(new String[]{"Available","Occupied"});
+        txtAvailabilityStatus.setBackground(Color.WHITE);
         txtAvailabilityStatus.setBounds(250,130, 150, 30);
         add(txtAvailabilityStatus);
 
@@ -48,6 +49,7 @@ public class AddRoom extends JFrame implements ActionListener {
         add(lblCleaningStatus);
 
         txtCleaningStatus = new JComboBox(new String[]{"Cleaned","Dirty"});
+        txtCleaningStatus.setBackground(Color.WHITE);
         txtCleaningStatus.setBounds(250,180, 150, 30);
         add(txtCleaningStatus);
 
@@ -67,6 +69,7 @@ public class AddRoom extends JFrame implements ActionListener {
         add(lblBedType);
 
         txtBedType = new JComboBox(new String[]{"Single Bed","Double Bed"});
+        txtBedType.setBackground(Color.WHITE);
         txtBedType.setBounds(250,280, 150, 30);
         add(txtBedType);
 
@@ -82,10 +85,10 @@ public class AddRoom extends JFrame implements ActionListener {
         add(btnCancel);
 
         ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/room.jpg"));
-        img =new ImageIcon(img.getImage().getScaledInstance(450,400,Image.SCALE_DEFAULT));
+        img =new ImageIcon(img.getImage().getScaledInstance(500,400,Image.SCALE_DEFAULT));
         JLabel lblImg = new JLabel();
         lblImg.setIcon(img);
-        lblImg.setBounds(500,30,450,400);
+        lblImg.setBounds(450,30,500,400);
         add(lblImg);
 
 
@@ -142,8 +145,6 @@ public class AddRoom extends JFrame implements ActionListener {
                 if(ch != '.')
                     return false;
             }
-
-
         }
         return true;
     }

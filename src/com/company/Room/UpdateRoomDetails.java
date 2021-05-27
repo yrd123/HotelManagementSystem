@@ -33,6 +33,7 @@ public class UpdateRoomDetails extends JFrame implements ActionListener {
         add(lblRoomNo);
 
         txtRoomNo = new JComboBox(getRoomNumbers());
+        txtRoomNo.setBackground(Color.WHITE);
         txtRoomNo.setBounds(250,80, 150, 30);
         add(txtRoomNo);
         txtRoomNo.addActionListener(this);
@@ -43,6 +44,7 @@ public class UpdateRoomDetails extends JFrame implements ActionListener {
         add(lblAvailableStatus);
 
         txtAvailabilityStatus = new JComboBox(new String[]{"Available","Occupied"});
+        txtAvailabilityStatus.setBackground(Color.WHITE);
         txtAvailabilityStatus.setBounds(250,130, 150, 30);
         add(txtAvailabilityStatus);
 
@@ -52,6 +54,7 @@ public class UpdateRoomDetails extends JFrame implements ActionListener {
         add(lblCleaningStatus);
 
         txtCleaningStatus = new JComboBox(new String[]{"Cleaned","Dirty"});
+        txtCleaningStatus.setBackground(Color.WHITE);
         txtCleaningStatus.setBounds(250,180, 150, 30);
         add(txtCleaningStatus);
 
@@ -70,6 +73,7 @@ public class UpdateRoomDetails extends JFrame implements ActionListener {
         add(lblBedType);
 
         txtBedType = new JComboBox(new String[]{"Single Bed","Double Bed"});
+        txtBedType.setBackground(Color.WHITE);
         txtBedType.setBounds(250,280, 150, 30);
         add(txtBedType);
 
@@ -119,9 +123,7 @@ public class UpdateRoomDetails extends JFrame implements ActionListener {
                 }
 
                 String query = "update room set availabilitystatus='" + availabilityStatus + "',cleaningstatus='" + cleaningStatus + "',price=" + price + ",bedtype='" + bedType + "' where roomno=" + roomNo + ";";
-                System.out.println(query);
                 int rowsAffected = s.executeUpdate(query);
-                System.out.println("rows affected: " + rowsAffected);
                 if(rowsAffected == 1){
                     JOptionPane.showMessageDialog(null,"Updated room successfully");
                     dispose();

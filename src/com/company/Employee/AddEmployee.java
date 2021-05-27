@@ -70,6 +70,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         String[] jobs = {"Front Desk Clerks","Porters","Housekeeping","Kitchen Staff","Room Service","Waiter/Waitress","Manager","Accountant","Chef"};
         txtJob = new JComboBox(jobs);
+        txtJob.setBackground(Color.WHITE);
         txtJob.setBounds(200,180,150,30);
         add(txtJob);
 
@@ -165,9 +166,6 @@ public class AddEmployee extends JFrame implements ActionListener {
             else
                 gender = "Female";
 
-            System.out.println(gender);
-            System.out.println(job);
-
             try{
                 Connection conn = PostgreSQLConnection.getConnection();
                 Statement s = conn.createStatement();
@@ -182,7 +180,6 @@ public class AddEmployee extends JFrame implements ActionListener {
                 }
 
                 String query = "INSERT INTO EMPLOYEE VALUES ("+ id +",'" + name + "'," + age + ",'" + gender + "','" + job + "'," + salary + ",'" + phone + "','" + aadhar + "','" + email + "');";
-                System.out.println(query);
 
                 int rowsInserted = s.executeUpdate(query);
                 if(rowsInserted >= 1)
@@ -191,7 +188,6 @@ public class AddEmployee extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null,"Error adding employee");
             }
             catch(Exception e){
-                System.out.println(e);
                 JOptionPane.showMessageDialog(null,e);
             }
 
@@ -206,7 +202,4 @@ public class AddEmployee extends JFrame implements ActionListener {
         return true;
     }
 
-    public static void main(String[] args) {
-        new AddEmployee();
-    }
 }

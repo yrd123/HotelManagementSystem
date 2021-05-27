@@ -25,7 +25,7 @@ public class CustomerCheckIn extends JFrame implements ActionListener {
         setBounds(450,50,1020,680);
         getContentPane().setBackground(Color.WHITE);
 
-        JLabel lblTitle = new JLabel("Add Customer");
+        JLabel lblTitle = new JLabel("Customer Check In");
         lblTitle.setFont(new Font("Times New Roman", Font.BOLD,25));
         lblTitle.setBounds(150,20,200,50);
         add(lblTitle);
@@ -37,6 +37,7 @@ public class CustomerCheckIn extends JFrame implements ActionListener {
 
         String[] ids = {"Passport","Aadhar", "Voter-ID","Driving License"};
         txtIdName = new JComboBox(ids);
+        txtIdName.setBackground(Color.WHITE);
         txtIdName.setBounds(250,90,200,30);
         add(txtIdName);
 
@@ -93,6 +94,7 @@ public class CustomerCheckIn extends JFrame implements ActionListener {
         add(lblRoomNumber);
 
         roomNumbers = new JComboBox(getRoomNumbers());
+        roomNumbers.setBackground(Color.WHITE);
         roomNumbers.setBounds(250,340,200,30);
         add(roomNumbers);
 
@@ -146,11 +148,11 @@ public class CustomerCheckIn extends JFrame implements ActionListener {
         add(btnCancel);
         btnCancel.addActionListener(ae -> dispose());
 
-        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/customer.jpg"));
-        img = new ImageIcon(img.getImage().getScaledInstance(470,540,Image.SCALE_DEFAULT));
+        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/checkIn.jpg"));
+        img = new ImageIcon(img.getImage().getScaledInstance(470,520,Image.SCALE_DEFAULT));
         JLabel background = new JLabel();
         background.setIcon(img);
-        background.setBounds(500,30,470,540);
+        background.setBounds(500,50,470,540);
         add(background);
 
         setVisible(true);

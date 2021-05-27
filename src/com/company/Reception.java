@@ -2,9 +2,10 @@ package com.company;
 
 import com.company.Customer.CustomerCheckIn;
 import com.company.Customer.CustomerCheckOut;
-import com.company.Customer.CustomerDetail;
-import com.company.Employee.EmployeeDetail;
-import com.company.Room.RoomDetail;
+import com.company.Customer.CustomerDetails;
+import com.company.Driver.DriverDetails;
+import com.company.Employee.EmployeeDetails;
+import com.company.Room.RoomDetails;
 import com.company.Room.UpdateRoomDetails;
 import com.company.login.Logout;
 
@@ -15,7 +16,7 @@ import java.awt.event.ActionListener;
 
 public class Reception extends JFrame implements ActionListener {
 
-    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12;
+    JButton btnCheckIn, btnRoomDetails, btnEmployeeDetails, btnCustomerDetails, btnManagerDetails, btnCheckOut,btnUpdateRoomDetails, btnPickUpService, btnDashBoard, btnLogOut;
 
     public Reception(){
         setLayout(null);
@@ -24,104 +25,90 @@ public class Reception extends JFrame implements ActionListener {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         JPanel leftPanel = new JPanel();
-        leftPanel.setBackground(new Color(96,94,134));
+        leftPanel.setBackground(new Color(93, 157, 248));
         leftPanel.setBounds(0,0,400,screenSize.height);
         leftPanel.setLayout(null);
         add(leftPanel);
 
-        b1 = new JButton("Customer Check In");
-        b1.setBackground(new Color(96,94,134));
-        b1.setForeground(Color.white);
-        b1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b1.setBounds(0,0,400,50);
-        leftPanel.add(b1);
-        b1.addActionListener(this);
+        btnCheckIn = new JButton("Customer Check In");
+        btnCheckIn.setBackground(new Color(120, 164, 255));
+        btnCheckIn.setForeground(Color.white);
+        btnCheckIn.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnCheckIn.setBounds(10,10,380,50);
+        leftPanel.add(btnCheckIn);
+        btnCheckIn.addActionListener(this);
 
-        b2 = new JButton("Room Details");
-        b2.setBackground(new Color(96,94,134));
-        b2.setForeground(Color.white);
-        b2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b2.setBounds(0,50,400,50);
-        leftPanel.add(b2);
-        b2.addActionListener(this);
+        btnCheckOut = new JButton("Customer Check Out");
+        btnCheckOut.setBackground(new Color(120,164,255));;
+        btnCheckOut.setForeground(Color.white);
+        btnCheckOut.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnCheckOut.setBounds(10,70,380,50);
+        leftPanel.add(btnCheckOut);
+        btnCheckOut.addActionListener(this);
 
-        b3 = new JButton("Department");
-        b3.setBackground(new Color(96,94,134));;
-        b3.setForeground(Color.white);
-        b3.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b3.setBounds(0,100,400,50);
-        leftPanel.add(b3);
+        btnCustomerDetails = new JButton("Customer Details");
+        btnCustomerDetails.setBackground(new Color(120,164,255));;
+        btnCustomerDetails.setForeground(Color.white);
+        btnCustomerDetails.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnCustomerDetails.setBounds(10,130,380,50);
+        leftPanel.add(btnCustomerDetails);
+        btnCustomerDetails.addActionListener(this);
 
-        b4 = new JButton("Employee Details");
-        b4.setBackground(new Color(96,94,134));
-        b4.setForeground(Color.white);
-        b4.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b4.setBounds(0,150,400,50);
-        leftPanel.add(b4);
-        b4.addActionListener(this);
+        btnRoomDetails = new JButton("Room Details");
+        btnRoomDetails.setBackground(new Color(120,164,255));
+        btnRoomDetails.setForeground(Color.white);
+        btnRoomDetails.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnRoomDetails.setBounds(10,190,380,50);
+        leftPanel.add(btnRoomDetails);
+        btnRoomDetails.addActionListener(this);
 
-        b5 = new JButton("Customer Details");
-        b5.setBackground(new Color(96,94,134));;
-        b5.setForeground(Color.white);
-        b5.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b5.setBounds(0,200,400,50);
-        leftPanel.add(b5);
-        b5.addActionListener(this);
+        btnUpdateRoomDetails = new JButton("Update Room Details");
+        btnUpdateRoomDetails.setBackground(new Color(120,164,255));
+        btnUpdateRoomDetails.setForeground(Color.white);
+        btnUpdateRoomDetails.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnUpdateRoomDetails.setBounds(10,250,380,50);
+        leftPanel.add(btnUpdateRoomDetails);
+        btnUpdateRoomDetails.addActionListener(this);
 
-        b6 = new JButton("Manager Details");
-        b6.setBackground(new Color(96,94,134));;
-        b6.setForeground(Color.white);
-        b6.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b6.setBounds(0,250,400,50);
-        leftPanel.add(b6);
-        b6.addActionListener(this);
+        btnEmployeeDetails = new JButton("Employee Details");
+        btnEmployeeDetails.setBackground(new Color(120,164,255));
+        btnEmployeeDetails.setForeground(Color.white);
+        btnEmployeeDetails.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnEmployeeDetails.setBounds(10,310,380,50);
+        leftPanel.add(btnEmployeeDetails);
+        btnEmployeeDetails.addActionListener(this);
 
-        b7 = new JButton("Check Out");
-        b7.setBackground(new Color(96,94,134));;
-        b7.setForeground(Color.white);
-        b7.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b7.setBounds(0,300,400,50);
-        leftPanel.add(b7);
-        b7.addActionListener(this);
+        btnManagerDetails = new JButton("Manager Details");
+        btnManagerDetails.setBackground(new Color(120,164,255));;
+        btnManagerDetails.setForeground(Color.white);
+        btnManagerDetails.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnManagerDetails.setBounds(10,370,380,50);
+        leftPanel.add(btnManagerDetails);
+        btnManagerDetails.addActionListener(this);
 
-        b8 = new JButton("Update Check In");
-        b8.setBackground(new Color(96,94,134));;
-        b8.setForeground(Color.white);
-        b8.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b8.setBounds(0,350,400,50);
-        leftPanel.add(b8);
+        btnPickUpService = new JButton("Pick Up Service");
+        btnPickUpService.setBackground(new Color(120,164,255));
+        btnPickUpService.setForeground(Color.white);
+        btnPickUpService.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnPickUpService.setBounds(10,430,380,50);
+        leftPanel.add(btnPickUpService);
+        btnPickUpService.addActionListener(this);
 
-        b9 = new JButton("Update Room Details");
-        b9.setBackground(new Color(96,94,134));
-        b9.setForeground(Color.white);
-        b9.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b9.setBounds(0,400,400,50);
-        leftPanel.add(b9);
-        b9.addActionListener(this);
+        btnDashBoard = new JButton("DashBoard");
+        btnDashBoard.setBackground(new Color(120,164,255));;
+        btnDashBoard.setForeground(Color.white);
+        btnDashBoard.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnDashBoard.setBounds(10,490,380,50);
+        leftPanel.add(btnDashBoard);
+        btnDashBoard.addActionListener(this);
 
-        b10 = new JButton("Pick Up Service");
-        b10.setBackground(new Color(96,94,134));
-        b10.setForeground(Color.white);
-        b10.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b10.setBounds(0,450,400,50);
-        leftPanel.add(b10);
-
-        b11 = new JButton("Search Room");
-        b11.setBackground(new Color(96,94,134));
-        b11.setForeground(Color.white);
-        b11.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b11.setBounds(0,500,400,50);
-        leftPanel.add(b11);
-
-        b12 = new JButton("LogOut");
-        b12.setBackground(new Color(96,94,134));
-        b12.setForeground(Color.white);
-        b12.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        b12.setBounds(0,550,400,50);
-        leftPanel.add(b12);
-        b12.addActionListener(ae->{
-            Logout.logout();
-        });
+        btnLogOut = new JButton("LogOut");
+        btnLogOut.setBackground(new Color(120,164,255));
+        btnLogOut.setForeground(Color.white);
+        btnLogOut.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+        btnLogOut.setBounds(10,550,380,50);
+        leftPanel.add(btnLogOut);
+        btnLogOut.addActionListener(this);
 
         ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("com/company/images/reception.jpg"));
         img = new ImageIcon(img.getImage().getScaledInstance(screenSize.width - 400, screenSize.height, Image.SCALE_DEFAULT));
@@ -139,41 +126,36 @@ public class Reception extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == b1){
+        if(e.getSource() == btnCheckIn){
             new CustomerCheckIn();
         }
-        else if(e.getSource() == b2){
-            new RoomDetail();
+        else if(e.getSource() == btnRoomDetails){
+            new RoomDetails();
         }
-        else if(e.getSource() == b3){
-
+        else if(e.getSource() == btnEmployeeDetails){
+            new EmployeeDetails().displayEmployeeInformation();
         }
-        else if(e.getSource() == b4){
-            new EmployeeDetail().displayEmployeeInformation();
+        else if(e.getSource() == btnCustomerDetails){
+            new CustomerDetails();
         }
-        else if(e.getSource() == b5){
-            new CustomerDetail();
+        else if(e.getSource() == btnManagerDetails){
+            new EmployeeDetails().displayManagerInformation();
         }
-        else if(e.getSource() == b6){
-            new EmployeeDetail().displayManagerInformation();
-        }
-        else if(e.getSource() == b7){
+        else if(e.getSource() == btnCheckOut){
             new CustomerCheckOut();
         }
-        else if(e.getSource() == b8){
-
-        }
-        else if(e.getSource() == b9){
+        else if(e.getSource() == btnUpdateRoomDetails){
             new UpdateRoomDetails();
         }
-        else if(e.getSource() == b10){
-
+        else if(e.getSource() == btnPickUpService){
+            new DriverDetails();
         }
-        else if(e.getSource() == b11){
-
+        else if(e.getSource() == btnDashBoard){
+            new Dashboard();
+            dispose();
         }
-        else if(e.getSource() == b12) {
-
+        else if(e.getSource() == btnLogOut) {
+            Logout.logout();
         }
     }
 }
