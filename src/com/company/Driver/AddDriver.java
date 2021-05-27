@@ -119,7 +119,7 @@ public class AddDriver extends JFrame implements ActionListener {
         img = new ImageIcon(img.getImage().getScaledInstance(450,450,Image.SCALE_DEFAULT));
         JLabel background = new JLabel();
         background.setIcon(img);
-        background.setBounds(400,30,450,450);
+        background.setBounds(400,10,450,450);
         add(background);
 
         //pack();
@@ -183,4 +183,7 @@ public class AddDriver extends JFrame implements ActionListener {
         return true;
     }
 
+    public static void main(String[] args) {
+        new AddDriver();
+    }
 }
